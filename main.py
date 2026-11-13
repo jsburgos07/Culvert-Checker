@@ -124,7 +124,7 @@ def watershed_page(state: State) -> Page:
         "Describe the land that drains to the pipe.",
     ]
     if state.error:
-        content.append(Bold(state.error))
+        content.append(bold(state.error))
     content += [
         LineBreak(),
         "Drainage area (acres):",
@@ -170,7 +170,7 @@ def pipe_page(state: State) -> Page:
         "Describe the pipe you want to check.",
     ]
     if state.error:
-        content.append(Bold(state.error))
+        content.append(bold(state.error))
     content += [
         LineBreak(),
         "Pipe diameter (inches):",
@@ -231,7 +231,7 @@ def results_page(state: State) -> Page:
         Header("Results"),
         Header("Verdict: " + state.verdict, 2),
         HorizontalRule(),
-        Bold("What you entered"),
+        bold("What you entered"),
         LineBreak(),
         "Drainage area: " + str(state.area) + " acres",
         LineBreak(),
@@ -242,7 +242,7 @@ def results_page(state: State) -> Page:
         "Pipe: " + str(state.diameter) + " in " + state.material
         + " at " + str(state.slope_percent) + "% slope",
         HorizontalRule(),
-        Bold("Calculated"),
+        bold("Calculated"),
         LineBreak(),
         "Design flow: " + str(round(state.design_flow, 2)) + " cfs",
         LineBreak(),
@@ -268,7 +268,7 @@ def results_page(state: State) -> Page:
 
     if len(state.warnings) > 0:
         content.append(HorizontalRule())
-        content.append(Bold("Warnings"))
+        content.append(bold("Warnings"))
         for note in state.warnings:
             content.append(LineBreak())
             content.append(note)
